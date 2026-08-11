@@ -35,9 +35,9 @@ project, and I know it's ugly. I'll add a license sooner or later.
 ### Project Notes
 
 All data for the project is in the `data` directory, and it is all derived from
-`Cards.json` into a series of lists, using `scripts/make_databases.rb`.
+`Cards-EN.json` into a series of lists, using `scripts/make_databases.rb`. `Cards-FR.json`is translated using data found on [an old gamekult post](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416).
 
--   `cards.js` loads `Cards.json` into a [TaffyDB](http://www.taffydb.com/)
+-   `cards-**.js` loads `Cards-**.json` into a [TaffyDB](http://www.taffydb.com/)
     instance
 -   `fusions.js` loads the list of fusions for each card into a list.
 -   `equips.js` loads the list of equips for each card into a list. If the card
@@ -56,7 +56,8 @@ All data for the project is in the `data` directory, and it is all derived from
 -   The Yu-Gi-Oh! Wikia, for the list of cards that I turned into the card
     database
 -   [CathodeRaymond](https://github.com/CathodeRaymond) for work with CSS and making the project actually look good
--   [duke1102](https://github.com/duke1102) for providing `Cards.json`, without which this project would be
+-   [duke1102](https://github.com/duke1102) for providing `Cards-EN.json`, without which this project would be
     _very_ innacurate.
+-   [this old gamekult post](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416) for providing data extracted into `Cards-FR.json`
 -   marcos0000 for Forbidden Memories Logo in HD [devianart profile](https://www.deviantart.com/marcos0000) and Carlos123321 for vrains background [devianart profile](https://www.deviantart.com/carlos123321)
 -   Giver336 for the .gif

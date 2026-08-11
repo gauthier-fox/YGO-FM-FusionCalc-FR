@@ -8,7 +8,7 @@ require 'json'
 # Cards are indexed from 1, leaving a null entry at index 0 for each list. To
 # keep this as a special value, every card's index will be initialized.
 
-cards = JSON.parse(File.read("data/Cards.json"))
+cards = JSON.parse(File.read("data/Cards-EN.json"))
 
 fusions = []
 results = []
@@ -76,9 +76,9 @@ File.open("data/equips.js", "w") { |file|
 
 # Try to match the original output by putting empty arrays together
 output = JSON.pretty_generate(cards).gsub(/\[\s*\]/, "[]")
-File.open("data/cards.js", "w") { |file|
+File.open("data/cards-en.js", "w") { |file|
     file.write("var cardDB = TAFFY(#{output})")
 }
 
 puts "STATS: #{fusions.size} fusions, #{equips.size} equips, #{results.size} results"
-puts "Wrote JS and JSON files for each"
+puts "Wrote JS and JSON files for each (in ENGLISH only)"

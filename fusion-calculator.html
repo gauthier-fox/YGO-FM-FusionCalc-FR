@@ -141,10 +141,20 @@
             </div>
         </footer>
         <script type="text/javascript" src="public/javascripts/awesomplete.min.js"></script>
-        <script type="text/javascript" src="public/javascripts/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="public/javascripts/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="public/javascripts/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="public/javascripts/taffy.js"></script>
-        <script type="text/javascript" src="data/cards.js"></script>
+		<script>
+			const langue = navigator.language.toLowerCase();
+
+			const fichierCards = langue.startsWith("fr")
+				? "data/cards-fr.js"
+				: "data/cards-en.js";
+
+			document.write(
+				'<script type="text/javascript" src="' + fichierCards + '"><\/script>'
+			);
+		</script>
         <script type="text/javascript" src="data/fusions.js"></script>
         <script type="text/javascript" src="data/equips.js"></script>
         <script type="text/javascript" src="data/types_and_stars.js"></script>
