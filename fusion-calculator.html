@@ -147,17 +147,20 @@
 		<script>
 			const langue = navigator.language.toLowerCase();
 
-			const fichierCards = langue.startsWith("fr")
-				? "data/cards-fr.js"
-				: "data/cards-en.js";
+			const fileCards = langue.startsWith("fr")
+				? "data/cards_fr.js"
+				: "data/cards_en.js";
+				
+			const fileTypesStars = langue.startsWith("fr")
+				? "data/types_and_stars_fr.js"
+				: "data/types_and_stars_en.js";
 
 			document.write(
-				'<script type="text/javascript" src="' + fichierCards + '"><\/script>'
+				'<script type="text/javascript" src="' + fileCards + '"><\/script><script type="text/javascript" src="' + fileTypesStars + '"><\/script>'
 			);
 		</script>
         <script type="text/javascript" src="data/fusions.js"></script>
         <script type="text/javascript" src="data/equips.js"></script>
-        <script type="text/javascript" src="data/types_and_stars.js"></script>
         <script type="text/javascript" src="public/javascripts/fusionCalc.js"></script>
     </body>
 </html>
