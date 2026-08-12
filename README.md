@@ -1,6 +1,6 @@
 ## Yu-Gi-Oh! Forbidden Memories Fusion Calculator
 
-Version: 0.8
+Version: 0.9
 
 Yu-Gi-Oh! Forbidden Memories is a terrible game with a terrible mechanic called
 "fusions." Fusions allow the player to fuse two cards together to get a new,
@@ -35,7 +35,7 @@ project, and I know it's ugly. I'll add a license sooner or later.
 ### Project Notes
 
 All data for the project is in the `data` directory, and it is all derived from
-`Cards-EN.json` into a series of lists, using `scripts/make_databases.rb`. `Cards-FR.json`is translated using data found on [an old gamekult post](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416).
+`Cards-EN.json` into a series of lists, using `scripts/make_databases.rb`. `Cards-FR.json`is translated using data found on [A Gamekult post from 2007](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416).
 
 -   `cards-**.js` loads `Cards-**.json` into a [TaffyDB](http://www.taffydb.com/)
     instance
@@ -46,7 +46,7 @@ All data for the project is in the `data` directory, and it is all derived from
     it can be equipped onto.
 -   `results.js` loads the list of fusions for each card that the card is the
     result of.
--   `types_and_stars.js` has two lists that map indexes to the card types (Beast,
+-   `types_and_stars_en.js` & `types_and_stars_en.js` have two lists that map indexes to the card types (Beast,
     Spellcaster, Dragon, etc.) and to star names. (Neptune, Moon, etc.)
 
 ## Special Thanks:
@@ -58,6 +58,7 @@ All data for the project is in the `data` directory, and it is all derived from
 -   [CathodeRaymond](https://github.com/CathodeRaymond) for work with CSS and making the project actually look good
 -   [duke1102](https://github.com/duke1102) for providing `Cards-EN.json`, without which this project would be
     _very_ innacurate.
--   [this old gamekult post](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416) for providing data extracted into `Cards-FR.json`
+-   [kaiba5555](https://www.gamekult.com/forum/t/recapitulatif-des-codes-de-cartes-yugioh-mdp-nom/144416) for providing French card names
+    (posted on Gamekult in January 2007) extracted into `Cards-FR.json`
 -   marcos0000 for Forbidden Memories Logo in HD [devianart profile](https://www.deviantart.com/marcos0000) and Carlos123321 for vrains background [devianart profile](https://www.deviantart.com/carlos123321)
 -   Giver336 for the .gif
