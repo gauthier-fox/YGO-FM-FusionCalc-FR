@@ -17,6 +17,12 @@
         <link rel="stylesheet" type="text/css" href="public/styles/normalize.css" />
         <link rel="stylesheet" type="text/css" href="public/styles/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="public/styles/home.css" />
+        <script>
+            const langue = navigator.language.toLowerCase();
+            const langueActive = langue.startsWith("fr") ? "fr" : "en";
+            window.langueActive = langueActive;
+        </script>
+        <script type="text/javascript" src="public/javascripts/i18n.js"></script>
     </head>
 
     <body class="d-flex flex-column min-vh-100">
@@ -44,18 +50,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="fusion-search.html">Fusion Search</a>
+                        <a class="nav-link text-dark" href="fusion-search.html" data-i18n="nav.search">Fusion Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="fusion-calculator.html">Fusion Calculator</a>
+                        <a class="nav-link text-dark" href="fusion-calculator.html" data-i18n="nav.calc">Fusion Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="javascript:void(0)" data-target="#imageModal" data-toggle="modal">
+                        <a class="nav-link text-dark" href="javascript:void(0)" data-target="#imageModal" data-toggle="modal" data-i18n="nav.guardian">
                             Guardian Star
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="about.html">About</a>
+                        <a class="nav-link text-dark" href="about.html" data-i18n="nav.about">About</a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -63,6 +69,7 @@
                             href="http://forums.somethingawful.com/showthread.php?threadid=3783156"
                             rel="noopener noreferrer"
                             target="_blank"
+                            data-i18n="nav.thread"
                             >Thread</a
                         >
                     </li>
@@ -75,9 +82,9 @@
                         <div class="modal-body">
                             <div><img src="public/images/guardian-star.png"  class="img-fluid"  alt="Guardian Star strengths & weaknesses" ></div>
 
-                            <div class="mt-3">Image credit & more details about Guardian Star can be found on the <a href="https://yugioh.fandom.com/wiki/Guardian_Star" target="_blank" rel="noopener noreferrer">Yu-Gi-Oh! Fandom</a>.</div>
+                            <div class="mt-3"><span data-i18n="modal.credit"></span><a href="https://yugioh.fandom.com/wiki/Guardian_Star" target="_blank" rel="noopener noreferrer">Yu-Gi-Oh! Fandom</a>.</div>
                             
-                             <div class="mt-2"><a  href="javascript:void(0)" class="btn btn-secondary btn-sm mt-3" data-dismiss="modal"> Close </a></div>
+                             <div class="mt-2"><a href="javascript:void(0)" class="btn btn-secondary btn-sm mt-3" data-dismiss="modal" data-i18n="modal.close"></a></div>
 
                         </div>
                     </div>
@@ -89,19 +96,19 @@
                 <div
                     class="col-md-8 offset-md-1 col-lg-5 offset-lg-1 order-sm-12 order-md-1 order-lg-1 my-4"
                 >
-                    <h1 class="text-main my-4 text-white hero-title">Yu-Gi-Oh! Forbidden Memories</h1>
-                    <h2 class="text-main my-4 text-white hero-title">Fusion Calculator</h2>
-                    <p class="m-4 text-subtext text-white">
+                    <h1 class="text-main my-4 text-white hero-title" data-i18n="index.hero1">Yu-Gi-Oh! Forbidden Memories</h1>
+                    <h2 class="text-main my-4 text-white hero-title" data-i18n="index.hero2">Fusion Calculator</h2>
+                    <p class="m-4 text-subtext text-white" data-i18n="index.p1">
                         Yu-Gi-Oh! Forbidden Memories is a terrible game with a terrible mechanic called
                         "fusions." Fusions allow the player to fuse two cards together to get a new,
                         hopefully more powerful card.
                     </p>
 
-                    <p class="mx-4 text-subtext text-white">
+                    <p class="mx-4 text-subtext text-white" data-i18n="index.p2">
                         For this reason we bring it to you the one thousand ways to fusion your cards !
                     </p>
                     <div class="d-flex flex-column flex-md-row">
-                        <a href="fusion-search.html" class="btn btn-lg btn-light my-3 mx-md-4"
+                        <a href="fusion-search.html" class="btn btn-lg btn-light my-3 mx-md-4" data-i18n="index.getStarted"
                             >Get started</a
                         >
                     </div>
@@ -119,16 +126,16 @@
             <section class="row container-fusion-search">
                 <div class="col col-lg-5 offset-lg-1 my-4 d-flex flex-column">
                     <h2 class="d-inline-flex text-main my-4">
-                        <span class="fusion-search">Fusion Search</span>
+                        <span class="fusion-search" data-i18n="nav.search">Fusion Search</span>
                     </h2>
 
-                    <p class="h3 my-5 text-subtext">
+                    <p class="h3 my-5 text-subtext" data-i18n="index.fusionSearchDesc">
                         With fusion search, you can get information about how to obtain that impossible
                         fusion card and also discover what type of fusion you can do with that card in your
                         hand!
                     </p>
                     <div class="d-flex flex-column flex-md-row">
-                        <a href="fusion-search.html" class="btn btn-lg btn-dark mb-3 mx-md-4"
+                        <a href="fusion-search.html" class="btn btn-lg btn-dark mb-3 mx-md-4" data-i18n="index.visitSearch"
                             >Visit Fusion Search</a
                         >
                     </div>
@@ -145,13 +152,13 @@
             <section class="row container-fusion-calculator">
                 <div class="col col-lg-5 offset-lg-1 my-4 d-flex flex-column">
                     <h2 class="d-inline-flex text-main my-4">
-                        <span class="fusion-calculator">Fusion Calculator</span>
+                        <span class="fusion-calculator" data-i18n="nav.calc">Fusion Calculator</span>
                     </h2>
 
-                    <p class="h3 my-5 text-subtext">
+                    <p class="h3 my-5 text-subtext" data-i18n="index.fusionCalcDesc1">
                         Let's test your whole hand, and discover what it's your next play.
                     </p>
-                    <p class="h3 mb-5 text-subtext">Like Fusion, equip or rituals !</p>
+                    <p class="h3 mb-5 text-subtext" data-i18n="index.fusionCalcDesc2">Like Fusion, equip or rituals !</p>
 
                     <div class="d-flex flex-column flex-md-row">
                         <a href="fusion-calculator.html" class="btn btn-lg btn-light mb-3 mx-md-4"
@@ -170,16 +177,16 @@
             </section>
             <section class="row container-about">
                 <div class="col col-lg-5 offset-lg-1 my-4">
-                    <h2 class="text-main my-4"><span class="about-title">About</span></h2>
+                    <h2 class="text-main my-4"><span class="about-title" data-i18n="nav.about">About</span></h2>
 
-                    <p class="h3 my-5 text-subtext">
+                    <p class="h3 my-5 text-subtext" data-i18n="index.aboutDesc">
                         Learn more about the
                         <strong>Yu-Gi-Oh! Forbiden Memories Fusion Calculator</strong> project, and how to
                         get involved.
                     </p>
 
                     <div class="d-flex flex-column flex-md-row">
-                        <a href="about.html" class="btn btn-lg btn-about mb-3 mx-md-4"
+                        <a href="about.html" class="btn btn-lg btn-about mb-3 mx-md-4" data-i18n="index.readAbout"
                             >READ THE ABOUT SECTION</a
                         >
                     </div>

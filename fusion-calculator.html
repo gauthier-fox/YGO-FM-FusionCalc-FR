@@ -20,9 +20,11 @@
         <link rel="stylesheet" type="text/css" href="public/styles/fusioncustom.css" />
         <link rel="stylesheet" type="text/css" href="public/styles/awesomplete.css" />
         <script>
-			const langue = navigator.language.toLowerCase();
+            const langue = navigator.language.toLowerCase();
             const langueActive = langue.startsWith("fr") ? "fr" : "en";
-		</script>
+            window.langueActive = langueActive;
+        </script>
+        <script type="text/javascript" src="public/javascripts/i18n.js"></script>
     </head>
     <body class="bg-dark d-flex flex-column min-vh-100 polymerization">
         <header class="navbar navbar-expand-lg navbar-light bg-light flex-column flex-md-row">
@@ -49,18 +51,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="fusion-search.html">Fusion Search</a>
+                        <a class="nav-link text-dark" href="fusion-search.html" data-i18n="nav.search">Fusion Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="fusion-calculator.html">Fusion Calculator</a>
+                        <a class="nav-link text-dark" href="fusion-calculator.html" data-i18n="nav.calc">Fusion Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="javascript:void(0)" data-target="#imageModal" data-toggle="modal">
+                        <a class="nav-link text-dark" href="javascript:void(0)" data-target="#imageModal" data-toggle="modal" data-i18n="nav.guardian">
                             Guardian Star
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="about.html">About</a>
+                        <a class="nav-link text-dark" href="about.html" data-i18n="nav.about">About</a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -68,6 +70,7 @@
                             href="http://forums.somethingawful.com/showthread.php?threadid=3783156"
                             rel="noopener noreferrer"
                             target="_blank"
+                            data-i18n="nav.thread"
                             >Thread</a
                         >
                     </li>
@@ -84,9 +87,9 @@
                                 document.getElementById("guardian-star-image").src =
                                     `public/images/guardian-star-${langueActive}.png`;
                             </script>
-                            <div class="mt-3">Image credit & more details about Guardian Star can be found on the <a href="https://yugioh.fandom.com/wiki/Guardian_Star" target="_blank" rel="noopener noreferrer">Yu-Gi-Oh! Fandom</a>.</div>
+                            <div class="mt-3"><span data-i18n="modal.credit"></span><a href="https://yugioh.fandom.com/wiki/Guardian_Star" target="_blank" rel="noopener noreferrer">Yu-Gi-Oh! Fandom</a>.</div>
                             
-                            <div class="mt-2"><a  href="javascript:void(0)" class="btn btn-secondary btn-sm mt-3" data-dismiss="modal"> Close </a></div>
+                            <div class="mt-2"><a href="javascript:void(0)" class="btn btn-secondary btn-sm mt-3" data-dismiss="modal" data-i18n="modal.close"></a></div>
 
                         </div>
                     </div>
@@ -98,22 +101,22 @@
                 <div class="col">
                     <div class="row my-3">
                         <div class="col">
-                            <h3 class="my-3 text-main">ENTER HAND</h3>
+                            <h3 class="my-3 text-main" data-i18n="calc.enterHand">ENTER HAND</h3>
 
                             <div class="hand-input-group">
-                                <input type="test" id="hand1" /><span id="hand1-info" class="ml-2"></span
+                                <input type="text" id="hand1" data-i18n="calc.hand1Placeholder" /><span id="hand1-info" class="ml-2"></span
                                 ><br />
-                                <input type="test" id="hand2" /><span id="hand2-info" class="ml-2"></span
+                                <input type="text" id="hand2" data-i18n="calc.hand2Placeholder" /><span id="hand2-info" class="ml-2"></span
                                 ><br />
-                                <input type="test" id="hand3" /><span id="hand3-info" class="ml-2"></span
+                                <input type="text" id="hand3" data-i18n="calc.hand3Placeholder" /><span id="hand3-info" class="ml-2"></span
                                 ><br />
-                                <input type="test" id="hand4" /><span id="hand4-info" class="ml-2"></span
+                                <input type="text" id="hand4" data-i18n="calc.hand4Placeholder" /><span id="hand4-info" class="ml-2"></span
                                 ><br />
-                                <input type="test" id="hand5" /><span id="hand5-info" class="ml-2"></span
+                                <input type="text" id="hand5" data-i18n="calc.hand5Placeholder" /><span id="hand5-info" class="ml-2"></span
                                 ><br />
                             </div>
                             <br />
-                            <button type="button" class="btn btn-danger mt-4" id="resetBtn">
+                            <button type="button" class="btn btn-danger mt-4" id="resetBtn" data-i18n="calc.resetAll">
                                 Reset All
                             </button>
                         </div>
@@ -123,7 +126,7 @@
 
             <section class="row rounded-lg mt-4 bg-light">
                 <div class="col">
-                    <h4 class="text-center my-4 text-main">RESULTS<span id="search-msg"></span></h4>
+                    <h4 class="text-center my-4 text-main" data-i18n="results.title">RESULTS<span id="search-msg"></span></h4>
 
                     <div class="row">
                         <div class="col-sm">

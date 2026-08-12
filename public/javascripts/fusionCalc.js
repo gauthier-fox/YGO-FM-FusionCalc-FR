@@ -1,6 +1,13 @@
 var outputLeft = document.getElementById("outputarealeft");
 var outputRight = document.getElementById("outputarearight");
 
+function L(key, param) {
+    var s = (window.locale || {})[key];
+    if (s === undefined) return key;
+    if (param !== undefined) return s.replace('{0}', param);
+    return s;
+}
+
 // Initialize Awesomplete
 var _awesompleteOpts = {
     list: card_db()
@@ -20,13 +27,13 @@ function fusesToHTML(fuselist) {
     return fuselist
         .map(function (fusion) {
             var res =
-                "<div class='result-div'>Input: " +
+                "<div class='result-div'>" + L('fusion.input') + " " +
                 fusion.card1.Name +
-                "<br>Input: " +
+                "<br>" + L('fusion.input') + " " +
                 fusion.card2.Name;
             if (fusion.result) {
                 // Equips and Results don't have a result field
-                res += "<br>Result: " + fusion.result.Name;
+                res += "<br>" + L('fusion.result') + " " + fusion.result.Name;
                 if (isMonster(fusion.result)) {
                     res += " " + formatStats(fusion.result.Attack, fusion.result.Defense);
                 } else {
@@ -65,7 +72,7 @@ function checkCard(cardname, infoname) {
     var info = $("#" + infoname);
     var card = getCardByName(cardname);
     if (!card) {
-        info.html("Invalid card name");
+        info.html(L('fusion.invalidCard'));
     } else if (isMonster(card)) {
         info.html(formatStats(card.Attack, card.Defense) + " [" + cardTypes[card.Type] + "]");
     } else {
@@ -113,10 +120,9 @@ function findFusions() {
         }
     }
 
-    outputLeft.innerHTML = "<h2 class='center'>Fusions:</h2>";
+    outputLeft.innerHTML = "<h2 class='center'>"+L('fusions.title')+":</h2>";
     outputLeft.innerHTML += fusesToHTML(fuses.sort((a, b) => b.result.Attack - a.result.Attack));
-
-    outputRight.innerHTML = "<h2 class='center'>Equips:</h2>";
+    outputRight.innerHTML = "<h2 class='center'>"+L('equips.title')+":</h2>";
     outputRight.innerHTML += fusesToHTML(equips);
 }
 

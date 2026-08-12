@@ -7,6 +7,13 @@ let resetBtn = document.getElementById("reset-btn");
 let searchResultsBtn = document.getElementById("search-results-btn");
 let searchNameBtn = document.getElementById("search-name-btn");
 
+function L(key, param) {
+    var s = (window.locale || {})[key];
+    if (s === undefined) return key;
+    if (param !== undefined) return s.replace('{0}', param);
+    return s;
+}
+
 // FUNCTIONS
 
 function resultsClear() {
@@ -18,10 +25,10 @@ function resultsClear() {
 
 function createDangerMessage(input) {
     if (!input) {
-        let firstMessage = `<div class="alert alert-danger" role="alert">Please enter a search term</div>`;
+        let firstMessage = `<div class="alert alert-danger" role="alert">${L('alert.enterSearch')}</div>`;
         return firstMessage;
     } else {
-        let secondMessage = `<div class="alert alert-danger" role="alert">No card for ${input} found</div>`;
+        let secondMessage = `<div class="alert alert-danger" role="alert">${L('alert.noCard', input)}</div>`;
         return secondMessage;
     }
 }
@@ -33,10 +40,10 @@ function createSideCard(card) {
                     <div class="card-body">
                     <h5 class="card-title">${card.Name}</h5>
                     <p class="card-text">${card.Description}</p>
-                    <p class="card-text"><strong>ATK / DEF:</strong> ${card.Attack} / ${card.Defense}</p>
-                    <p class="card-text"><strong>Type:</strong> ${cardTypes[card.Type]}</p>
-                    <p class="card-text"><strong>Stars:</strong> ${card.Stars}</p>
-                    <p class="card-text"><strong>Password:</strong> ${card.CardCode}</p>
+                    <p class="card-text"><strong>${L('card.atkdef')}</strong> ${card.Attack} / ${card.Defense}</p>
+                    <p class="card-text"><strong>${L('card.type')}</strong> ${cardTypes[card.Type]}</p>
+                    <p class="card-text"><strong>${L('card.stars')}</strong> ${card.Stars}</p>
+                    <p class="card-text"><strong>${L('card.password')}</strong> ${card.CardCode}</p>
                     </div>
                     </div>
                     </div>
@@ -46,7 +53,7 @@ function createSideCard(card) {
         return modelCard;
     } else {
         let notMonsterCard = modelCard.replace(
-            `<p class="card-text"><strong>ATK / DEF:</strong> ${card.Attack} / ${card.Defense}</p>`,
+            `<p class="card-text"><strong>${L('card.atkdef')}</strong> ${card.Attack} / ${card.Defense}</p>`,
             ""
         );
         return notMonsterCard;
@@ -75,11 +82,11 @@ $("#cardname").on("awesomplete-selectcomplete", function () {
 function fusesToHTML(fuselist) {
     return fuselist.map(function (fusion) {
         var res = `<div class="card border-dark mb-3" style="max-width: 18rem;">
-        <div class="card-body text-dark"><p class="card-text"><strong>Input:</strong> ${fusion.card1.Name}
-        <p class="card-text"><strong>Input:</strong> ${fusion.card2.Name}`;
+        <div class="card-body text-dark"><p class="card-text"><strong>${L('fusion.input')}</strong> ${fusion.card1.Name}
+        <p class="card-text"><strong>${L('fusion.input')}</strong> ${fusion.card2.Name}`;
         if (fusion.result) {
             // Equips and Results don't have a result field
-            res += `<p class="card-text"><strong>Result:</strong> ` + fusion.result.Name;
+            res += `<p class="card-text"><strong>${L('fusion.result')}</strong> ` + fusion.result.Name;
             res += " (" + fusion.result.Attack + "/" + fusion.result.Defense + ")";
         }
         return res + `</div></div>`;
@@ -117,10 +124,9 @@ function searchByName() {
                 return { card1: card, card2: getCardById(e) };
             });
 
-            outputRight.innerHTML = "<h2 class='text-center my-4'>Can be equiped</h2>";
+            outputRight.innerHTML = "<h2 class='text-center my-4'>"+L('equips.title')+"</h2>";
             outputRight.innerHTML += fusesToHTML(equips);
-
-            outputLeft.innerHTML = "<h2 class='text-center my-4'>Fusions</h2>";
+            outputLeft.innerHTML = "<h2 class='text-center my-4'>"+L('fusions.title')+"</h2>";
             outputLeft.innerHTML += fusesToHTML(fuses);
         }
     }
